@@ -18,9 +18,13 @@ namespace WebApiDependencyResolverSample.Windsor
                 .ImplementedBy<DefaultValuesRepository>()
                 .LifestylePerWebRequest());
 
-            container.Register(Classes.FromAssemblyContaining<ValuesController>().BasedOn<IHttpController>().LifestylePerWebRequest());
+            //container.Register(Classes.FromAssemblyContaining<ValuesController>().BasedOn<IHttpController>().LifestylePerWebRequest());
+            //container.Register(Classes.FromAssemblyContaining<HomeController>().BasedOn<IController>().LifestylePerWebRequest());
 
-            container.Register(Classes.FromAssemblyContaining<HomeController>().BasedOn<IController>().LifestylePerWebRequest());
+
+            //var controllerFactory = new WindsorControllerFactory(container.Kernel);
+            //ControllerBuilder.Current.SetControllerFactory(controllerFactory);
+
         }
     }
 }

@@ -28,10 +28,14 @@ namespace WebApiDependencyResolverSample
 
         private static void ConfigureWindsor()
         {
-            var container = new WindsorContainer()
-                .Install(new WebWindsorInstaller());
+            var container = new WindsorContainer().Install(new WebWindsorInstaller());
 
             GlobalConfiguration.Configuration.DependencyResolver =new WindsorDependencyResolver(container);
+             
+
+            //GlobalConfiguration.Configuration.ServiceResolver.SetService(typeof(IHttpControllerFactory), new AreaHttpControllerFactory(GlobalConfiguration.Configuration));
+         
+
         }
     }
 }
